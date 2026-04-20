@@ -1,0 +1,23 @@
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+
+# C++ Build artifacts
+src/cpp/radio_engine
+*.o
+
+# Machine Learning Models
+# Κρατάμε το .pth εκτός Git γιατί είναι binary και αλλάζει συνέχεια
+*.pth
+
+# OS specific files
+.DS_Store
+.vscode/
+
+# Keep the results directory structures but ignore potential temp files
+!results/
+!results/ber_curves/
+!results/constellations/
