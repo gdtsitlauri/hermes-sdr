@@ -17,6 +17,10 @@ gdtsitlauri@gmail.com}}
 
 \begin{abstract}
 Traditional wireless communication systems rely on human-engineered modulation schemes. In this paper, we present HERMES, an AI-native SDR framework based on the CADUCEUS-WAVE neural transceiver. We evaluate AWGN, Rayleigh, and Rician channels on an NVIDIA GTX 1650 (CUDA) and report full BER-vs-SNR curves from 0--20\,dB. In AWGN, CADUCEUS reaches BER $2.25\times10^{-4}$ at 20\,dB, while in Rayleigh and Rician at 20\,dB it achieves 0.4562 and 0.2200 respectively. We further provide an information-theoretic analysis showing CADUCEUS mutual information increasing to 3.9985 bits/symbol at 20\,dB, approaching the 4-bit/symbol constellation limit. The framework targets practical, GPU-accelerated experimentation for IEEE Globecom / IEEE Communications Letters style evaluations.
+The committed evidence supports HERMES as a strong simulation-first neural-PHY
+research framework. Its empirical profile is best in AWGN, while the fading
+channel story remains mixed and should not be overstated as universal
+superiority over classical schemes.
 \end{abstract}
 
 \section{Introduction}

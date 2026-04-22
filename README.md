@@ -1,12 +1,18 @@
 # HERMES: AI-Native Software Defined Radio Framework
 ### High-Fidelity Neural Transceiver with CADUCEUS-WAVE Optimization
 
-**Author:** George David Tsitlauri  
-**Affiliation:** Dept. of Informatics & Telecommunications, University of Thessaly, Greece  
-**Contact:** gdtsitlauri@gmail.com  
-**Year:** 2026  
 
 HERMES is an end-to-end neural communication system that replaces the traditional physical layer (PHY) with an adaptive Autoencoder. Optimized for **NVIDIA GTX 1650**, it demonstrates how AI can learn robust modulation schemes in real-time.
+
+
+## Project Metadata
+
+| Field | Value |
+| --- | --- |
+| Author | George David Tsitlauri |
+| Affiliation | Dept. of Informatics & Telecommunications, University of Thessaly, Greece |
+| Contact | gdtsitlauri@gmail.com |
+| Year | 2026 |
 
 ## Experimental Results
 
@@ -36,6 +42,17 @@ Generated with `src/python/benchmark_channels.py` (0 to 20 dB, step 2 dB, 10,000
 
 Raw CSV: `results/ber_curves/multi_channel_ber.csv`
 
+Interpretation:
+
+- The strongest committed result is the **AWGN path**, where CADUCEUS becomes
+  highly accurate at high SNR and approaches the intended 16-symbol operating
+  limit.
+- The **Rayleigh and Rician results are mixed**, and in several points the
+  classical baselines remain stronger.
+- HERMES should therefore be presented as a serious AI-native SDR research
+  framework with meaningful learned-modulation behavior, not as a universal
+  replacement for classical modulation across all fading regimes.
+
 ### 4. Shannon / Information-Theoretic Comparison
 Generated with `src/python/information_theory.py`:
 
@@ -55,6 +72,22 @@ During the full-link simulation (`hermes_full_demo.py`), the system achieved:
 - **Noise Resistance:** Up to 0.2 Std Dev
 - **Max Success Rate:** ~96.7%
 
+## Evidence Status
+
+- Evaluation is simulation-first and channel-model based.
+- The repository contains real BER and information-theory artifacts.
+- It does not yet contain over-the-air SDR hardware validation.
+
+## Why HERMES still stands up well
+
+- The repository has a real neural-PHY implementation, not just conceptual
+  diagrams.
+- BER curves are committed across multiple channel families with raw CSV output.
+- The information-theory layer provides a second line of evidence beyond a
+  single BER chart.
+- The right claim is not "beats all classical modulation", but "meaningful
+  learned communication behavior with reproducible SDR-style evaluation".
+
 ## 🛠️ Hybrid Architecture
 - **AI Core:** PyTorch (Neural Transceiver)
 - **DSP Engine:** C++ (High-speed channel simulation)
@@ -68,14 +101,4 @@ During the full-link simulation (`hermes_full_demo.py`), the system achieved:
 5. **Run tests:** `pytest tests/ -v`
 6. **C++ channel simulator:** `g++ -O3 -std=c++17 src/cpp/radio_channel.cpp -o src/cpp/radio_channel && ./src/cpp/radio_channel --channel rayleigh --snr 10 --symbols 1000`
 
-## Citation
 
-```bibtex
-@misc{tsitlauri2026hermes,
-  author = {George David Tsitlauri},
-  title  = {HERMES: AI-Native Software Defined Radio Framework with CADUCEUS-WAVE Optimization},
-  year   = {2026},
-  institution = {University of Thessaly},
-  email  = {gdtsitlauri@gmail.com}
-}
-```
